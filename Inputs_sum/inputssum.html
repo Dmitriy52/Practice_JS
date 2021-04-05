@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CheckHTML</title>
+    <style>
+        .answer{
+            float:left;
+            margin:20px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>Введите числа, а мы их посчитаем!</span>
+        <p>Введите три любых числа:</p>
+        <input class="num" type="number" id="number1" value="" placeholder="Любое число" >
+        <input class="num" type="number" id="number2" value="" placeholder="Любое число">
+        <input class="num" type="number" id="number3" value="" placeholder="Любое число">
+        <button onclick="sumOfInp()">Проверить</button>
+        <div>
+
+            <p class="answer"> Cумма всех введённых вами чисел: </p>
+            <input class="answer" type="number" id="result" value="">
+            <button class="answer" onclick="sumOfInp(0)">clear</button>
+        </div>
+
+    </div>
+    <script src="inputssum.js"> </script>
+</body>
+</html>
