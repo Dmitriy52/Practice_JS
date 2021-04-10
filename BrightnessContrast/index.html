@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Brightness and Contrast</title>
+
+    <style>
+
+        .mainCont {
+            width: 800px;
+            height: 1800px;
+            display: grid;
+            grid-template-columns: 400px 400px;
+            grid-template-rows: 600px 600px 600px;
+            grid-column-gap: 50px;
+            grid-row-gap: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- general canvases container -->
+    <div id="mainContainer" class="mainCont">
+
+        <!-- brightness image container   -->
+        <div id="brightContainer">
+            <!-- original brightness canvas container-->
+            <div id="origBrightContainer">
+                <p align="center"> Brightness </p>
+                <p align="center"> Original Image </p>
+                <canvas id="origBrightCanvas" width="400px" height="500px">
+                </canvas>
+            </div>
+            <!-- changed brightness canvas container-->
+            <div id="changBrightContainer">
+                <p align="center"> Brightness changed on 1 const </p>
+                <canvas id="changBrightCanvas" width="400px" height="500px">
+                </canvas>
+            </div>
+            <!-- fifty percent brightness image container -->
+            <div id="fifBrightContainer">
+                <p align="center"> Brightness: + 50 % </p>
+                <canvas id="fifBrightCanvas" width="400px" height="500px">
+                </canvas>
+            </div>
+
+        </div>
+
+
+        <!-- contrast image container-->
+        <div id="contrastContainer">
+            <!-- original contrast canvas container-->
+            <div id="origContainer">
+                <p align="center"> Contrast </p>
+                <p align="center"> Original Image </p>
+                <canvas id="origContrCanvas" width="400px" height="500px">
+                </canvas>
+            </div>
+
+            <!-- changed contrast canvas container-->
+            <div id="changeContainer">
+                <p align="center"> Contrast changed on 1 const </p>
+                <canvas id="changContrCanvas" width="400px" height="500px">
+                </canvas>
+            </div>
+
+            <!-- fifty percent contrast image container -->
+            <div id="fifPerContainer">
+                <p align="center"> Contrast: + 50 % </p>
+                <canvas id="fifPerContrCanvas" width="400px" height="500px">
+                </canvas>
+            </div>
+        </div>
+
+    </div>
+
+<script src="./code.js"></script>
+</body>
+</html>
