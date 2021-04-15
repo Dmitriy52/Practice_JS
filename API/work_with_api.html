@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>API_Services</title>
+
+    <style>
+
+        .mainCont {
+            width: 800px;
+            height: 1800px;
+            display: grid;
+            grid-template-columns: 400px 400px;
+            grid-template-rows: 600px 200px 600px;
+            grid-column-gap: 50px;
+            grid-row-gap: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- general API container -->
+<div id="mainContainer" class="mainCont">
+
+    <div id="player"></div>
+    <div id="map"></div>
+
+    <div class="weather">
+        <div class="weather__city"></div>
+        <div class="weather__forecast"></div>
+        <div class="weather__desc"></div>
+        <div class="weather__icon"></div>
+    </div>
+
+</div>
+
+<script src="youtube_api.js"></script>
+<script src="weather_api.js"></script>
+<!--Google Map-->
+<script src="google_map_api.js"></script>
+<!--  I do not use API key because this project is example-->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly"
+        async
+></script>
+
+</body>
+</html>
