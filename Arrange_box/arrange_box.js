@@ -207,7 +207,7 @@ const createArrangeBox = {
         //create function for search in 1-st container & put listener of keyUp on search input
         mainArr.firstSrcInp.onkeyup = function () {
             let items = mainArr.firstContainer.getElementsByClassName("containerElem");
-            for (var i = 0; i < items.length; i++) {
+            for (let i = 0; i < items.length; i++) {
                 for (let item of items) {
                     if (item.innerHTML.toLowerCase().split('').slice(0, mainArr.firstSrcInp.value.length).join('') !== mainArr.firstSrcInp.value.toLowerCase()) {
                         item.style.display = 'none';
@@ -220,7 +220,7 @@ const createArrangeBox = {
         //create function for search in 2-nd container & put listener of keyUp on search input
         mainArr.secondSrcInp.onkeyup = function () {
             let items = mainArr.secondContainer.getElementsByClassName("containerElem");
-            for (var i = 0; i < items.length; i++) {
+            for (let i = 0; i < items.length; i++) {
                 for (let item of items) {
                     if (item.innerHTML.toLowerCase().split('').slice(0, mainArr.secondSrcInp.value.length).join('') !== mainArr.secondSrcInp.value.toLowerCase()) {
                         item.style.display = 'none';
@@ -230,7 +230,6 @@ const createArrangeBox = {
                 }
             }
         }
-
 
         function refresh() {
             //we can use this cycle for clean containers
@@ -250,8 +249,6 @@ const createArrangeBox = {
                 elem.className = "containerElem";
                 elem.innerHTML = mainArr.avalible[elem.id - 1];
             }
-
-
         }
 
         // put listener of mouse click on button for refresh divs
@@ -266,6 +263,5 @@ const createArrangeBox = {
         // put listener of mouse click on button for copy main object
         mainArr.copyAll.addEventListener("click", copyArr);
     },
-
 }
 createArrangeBox.start(0);
