@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My_to_do</title>
+    <link rel="stylesheet" href="styletodo.css">
+</head>
+<body>
+    <h1>Drag & Drop Example</h1>
+    <!--    created main container    -->
+    <div class="wrapper" data-name="mainContainer">
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Enter new todo: </span>
+            </div>
+            <input type="text" class="input-group-elem" placeholder="Name of task" data-name="task-name" />
+            <textarea type="text" class="input-group-elem" style="height: 70px; font-size: 14px; resize: none" placeholder="Text of task" data-name="todo-input"></textarea>
+            <div class="input-group-append">
+                <button class="but-add" data-name="add-btn">Add</button>
+            </div>
+        </div>
+        <!-- created three columns for elements-->
+        <div class="listColumn">
+            <h3>Todos</h3>
+            <ul class="list-group" data-name="todos-list">
+                <li class="list-group-item" data-id="1" draggable="true">
+                    <h4>taskName 1</h4><br>
+                    <p>taskText</p>
+                    <p>Создана:</p>
+                    <p>15.05.2021</p>
+                    <button class="but-del" data-name="remove-btn">
+                        X
+                    </button>
+                </li>
+                    <li class="list-group-item" data-id="2" draggable="true">
+                        <h4>taskName 2</h4><br>
+                        <p>taskText</p>
+                        <p>Создана:</p>
+                        <p>15.05.2021</p>
+                        <button class="but-del" data-name="remove-btn">
+                            X
+                        </button>
+                    </li>
+                <li class="list-group-item" data-id="3" draggable="true">
+                    <h4>taskName 3</h4><br>
+                    <p>taskText</p>
+                    <p>Создана:</p>
+                    <p>15.05.2021</p>
+                    <button class="but-del" data-name="remove-btn">
+                        X
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="listColumn">
+            <h3>In Progress</h3>
+            <ul class="list-group" data-name="in-progress-list"></ul>
+        </div>
+
+        <div class="listColumn">
+            <h3>Completed</h3>
+            <ul class="list-group" data-name="completed-list"></ul>
+        </div>
+    </div>
+<script src="Mytodo.js"></script>
+</body>
+</html>
