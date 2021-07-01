@@ -1,0 +1,121 @@
+/*.input-group-prepend{}*/
+/*.input-group-text{}*/
+/*.input-group-elem{}*/
+/*.input-group-append{}*/
+/*.listColumn{}*/
+/*.but-del{}*/
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+}
+
+.wrapper {
+    max-width: 700px;
+    display: grid;
+    grid-template-areas:
+    "input-group"
+    "listColumn";
+    /*"footer footer footer";*/
+    grid-template-rows: 0.1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    margin: 0;
+}
+
+.input-group {
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group-elem{
+    height: 30px;
+    font-size:larger;
+}
+
+.but-add{
+
+}
+
+.listColumn{
+    /* width: 100%; */
+    min-width: 257px;
+    min-height: 350px;
+    border: 2px dotted;
+    border-color: brown;
+}
+.list-group {
+    padding: 50px;
+    min-height: 100px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.list-group-item {
+    margin: 0px;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-rows: 0.2fr 1fr 0.1fr;
+    grid-template-columns: 1fr;
+    word-break: break-all;
+
+    /* justify-content: space-between;
+    align-items: center; */
+    border: 2px solid;
+    border-color: green;
+    background-color: bisque;
+    transition: 1s;
+}
+/* .list-group-item_hover{
+    transform:scale(2);
+} */
+.list-group-item:hover{
+    transform:scale(2);
+}
+
+.but-del{
+    background-color: brown;
+}
+
+div + div {
+    border-right: 1px dotted #222;
+}
+
+h3 {
+    margin: 30px;
+    text-align: center;
+}
+
+h4 {
+    margin: 0;
+    background-color:lightgrey;
+    text-align: center;
+}
+
+p {
+    margin: 0px;
+}
+
+.completed p {
+    text-decoration: line-through;
+}
+
+.in-progress p {
+    border-bottom: 1px dashed #222;
+}
+
+.drop {
+    background: linear-gradient(#eee, transparent);
+    border-radius: 4px;
+}
