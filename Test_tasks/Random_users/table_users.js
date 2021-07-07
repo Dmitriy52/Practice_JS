@@ -1,12 +1,12 @@
 const requestUrl = 'https://randomuser.me/api/?results=15';
-const postWrapper = document.getElementById('post__wrapper');
+const postWrapper = document.getElementById('post_wrapper');
 let users = [];
 let trueRegistratedDate;
 
 
 function createUsersTable(data){
     return  `
-                <div class="wrapper__post">
+                <div class="table_wrapper">
                     <div>
                         <h3>First name:</h3>
                         <span>${data.name.first}</span>
@@ -17,7 +17,7 @@ function createUsersTable(data){
                     </div>
                     <div>
                     <h5>Avatar:</h5>
-                    <img src="${data.picture.thumbnail}""></div>
+                    <img src="${data.picture.thumbnail}" class="table_avatar"></div>
                     </div>
                     <div>
                         <h5>Location:</h5>
@@ -68,5 +68,4 @@ function getPosts(url){
         })
 }
 
-    
 getPosts(requestUrl);
