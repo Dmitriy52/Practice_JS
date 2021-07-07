@@ -2,7 +2,7 @@ const requestUrl = 'https://randomuser.me/api/?results=15';
 const postWrapper = document.getElementById('post__wrapper');
 let users = [];
 
-
+//check git
 function createUsersTable(data){
     return  `
                 <div class="wrapper__post">
