@@ -32,7 +32,7 @@ function createUsersTable(data){
                         <h5>Phone:</h5>
                         <span>${data.phone}</span>
                     </div>
-                    <div>
+                    <div> 
                         <h5>Registrated date:</h5>
                         <span>${trueRegistratedDate}</span>
                     </div>
