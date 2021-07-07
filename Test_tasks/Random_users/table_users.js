@@ -6,10 +6,18 @@ let users = [];
 function createUsersTable(data){
     return  `
                 <div class="wrapper__post">
-                    <div class="page">First name: ${data.name.first}</div>
-                    <div class="per_page">Last name: ${data.name.last}</div>
-                    <div class="total">Avatar: ${data.picture.thumbnail}</div>
-                </div>
+                    <div>
+                        <h3>First name:</h3>
+                        <span>${data.name.first}</span>
+                    </div>
+                    <div>
+                        <h3>Last name:</h3>
+                        <span>${data.name.last}</span>
+                    </div>
+                    <div>
+                    <h5>Avatar:</h5>
+                    <img src="${data.picture.thumbnail}"></div>
+                    </div>
             `
 }
 
