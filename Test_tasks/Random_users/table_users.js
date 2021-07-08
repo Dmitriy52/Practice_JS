@@ -1,43 +1,38 @@
 const requestUrl = 'https://randomuser.me/api/?results=15';
-const postWrapper = document.getElementById('post_wrapper');
+const postWrapper = document.getElementById('wrapper');
 let users = [];
+let fields = {
+    first: '',
+    last: ''
+};
 let trueRegistratedDate;
 
 
 function createUsersTable(data){
     return  `
-                <div class="table_wrapper">
+  
                     <div>
-                        <h3>First name:</h3>
-                        <span>${data.name.first}</span>
+                            ${data.name.first}
+                        </div>
+                        <div>
+                            ${data.name.last}
+                        </div>
+                        <div>                       
+                        <img src="${data.picture.thumbnail}" class="table_avatar"></div>
+                        <div>  
+                            ${data.location.state}
+                            ${data.location.city}
+                        </div>
+                        <div>                           
+                            ${data.email}
+                        </div>
+                        <div>                          
+                            ${data.phone}
+                        </div>
+                        <div>
+                            ${trueRegistratedDate}
+                        </div>
                     </div>
-                    <div>
-                        <h3>Last name:</h3>
-                        <span>${data.name.last}</span>
-                    </div>
-                    <div>
-                    <h5>Avatar:</h5>
-                    <img src="${data.picture.thumbnail}" class="table_avatar"></div>
-                    </div>
-                    <div>
-                        <h5>Location:</h5>
-                         <span>${data.location.state}</span>
-                         <span>${data.location.city}</span>
-                    </div>
-                    <div>
-                        <h5>Email:</h5>
-                        <span>${data.email}</span>
-                    </div>
-                    <div>
-                        <h5>Phone:</h5>
-                        <span>${data.phone}</span>
-                    </div>
-                    <div> 
-                        <h5>Registrated date:</h5>
-                        <span>${trueRegistratedDate}</span>
-                    </div>
-                    <hr />
-                </div>
             `
 }
 

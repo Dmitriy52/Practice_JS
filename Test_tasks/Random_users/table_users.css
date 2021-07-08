@@ -1,4 +1,26 @@
-.table_wrapper{}
+.main_wrapper{
+    width: 100%;
+}
+.table_wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.table_area{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+.caption-table{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+.table_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
 .table_avatar:hover{
     transform:scale(2);
 } 
