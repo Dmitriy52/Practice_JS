@@ -10,11 +10,13 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
+    text-align: center;
 }
-.caption-table{
+.table_caption{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
+    background: linear-gradient(#ddd8d8, #79e631);
 }
 .table_content{
     display: grid;
