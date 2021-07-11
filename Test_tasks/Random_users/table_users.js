@@ -61,6 +61,39 @@ function getPosts(url){
                  postWrapper.innerHTML +=createUsersTable(user);
              })
         })
-}
 
+}
 getPosts(requestUrl);
+
+//users
+let images = document.images;
+let imagesCount;
+console.log(images);
+
+setTimeout(function(){
+    imagesCount = images.length;
+    console.log(imagesCount);
+    let imagesLoaded = 0;
+let preloader = document.getElementById("preloaderWindow");
+let percentDisplay = document.getElementById("load_precent");
+
+ for(let i = 0; i < imagesCount; i++){
+     let image_clone = new Image();
+     image_clone.onload = imageLoadedCount;
+     image_clone.onerror = imageLoadedCount;
+     image_clone.src = images[i].src;
+     console.log(i);
+ }
+
+ function imageLoadedCount(){
+    imagesLoaded++;
+    console.log(imagesLoaded);
+    percentDisplay.innerHTML = (( (100 / imagesCount)*imagesLoaded) << 0)+ "%";
+    if(imagesLoaded >= imagesCount){
+        console.log("already");
+    }else{
+        console.log("No");
+    }
+ }
+},3000);
+
