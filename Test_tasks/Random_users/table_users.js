@@ -4,7 +4,7 @@ let users = [];
 let fields = {
     first: '',
     last: ''
-};
+}; 
 let trueRegistratedDate;
 
 
@@ -75,7 +75,7 @@ setTimeout(function(){
     console.log(imagesCount);
     let imagesLoaded = 0;
 let preloader = document.getElementById("preloaderWindow");
-let percentDisplay = document.getElementById("load_precent");
+let percentDisplay = document.getElementById("percentsOfLoad");
 
  for(let i = 0; i < imagesCount; i++){
      let image_clone = new Image();
@@ -91,9 +91,10 @@ let percentDisplay = document.getElementById("load_precent");
     percentDisplay.innerHTML = (( (100 / imagesCount)*imagesLoaded) << 0)+ "%";
     if(imagesLoaded >= imagesCount){
         console.log("already");
+        preloader.classList.add("preloader_done");
     }else{
         console.log("No");
     }
  }
-},3000);
+},3000); 
 
