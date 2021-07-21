@@ -14,8 +14,11 @@
 
         
     </div>
- 
+    
     <div  class="main_wrapper">
+        <div class="search-wrap">
+            <input class="control-search" type="text" placeholder="Что ищем?" id="search-text" onkeyup="tableSearch()">
+          </div>
         <div class="table_area"> 
             <div class="table_caption">
                 <div>First name</div>
@@ -26,7 +29,7 @@
                 <div>Phone</div>
                 <div>Registrated date</div>
             </div>
-            <div id="wrapper" class="table_content"></div>
+            <div id="table_wrapper" class="table_content"></div>
     </div>
     <script src="./table_users.js"> </script>
 </body>

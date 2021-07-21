@@ -197,7 +197,7 @@ const createArrangeBox = {
                 mainArr.selected = [];
             }
         }
-
+        
         //put listeners of mouse click on buttons
         mainArr.left.addEventListener("click", handleMove);
         mainArr.right.addEventListener("click", handleMove);
