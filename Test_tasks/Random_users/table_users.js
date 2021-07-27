@@ -4,7 +4,7 @@ let users = [];
 let images = document.images;
 let imagesCount;
 let trueRegistratedDate;
-
+let tooltipImg;
 
 function createUsersTable(data, id) {
     console.log(data.name.first.toLowerCase().split('').slice());
@@ -16,12 +16,18 @@ function createUsersTable(data, id) {
                         <div class="table_content_div" data-name="second_name" data-id="${id}">
                             ${data.name.last}
                         </div>
-                        <div data-id="${id}" data-name="elem">                       
-                        <img src="${data.picture.thumbnail}" ></div>
+                        <div data-id="${id}" data-name="elem">
+                            
+                            <div data-id="${id}" data-name="elem">                      
+                                <img class="table_avatar" src="${data.picture.thumbnail}" data-tooltip ="Avatar" >
+                                <img class="table_tooltip" id="tooltip ${id}" src="${data.picture.medium}">
+                            </div>
+                        </div>
                         <div data-id="${id}" data-name="elem">  
                             ${data.location.state}
                             ${data.location.city}
                         </div>
+
                         <div data-id="${id}" data-name="elem">                           
                             ${data.email}
                         </div>
@@ -68,10 +74,12 @@ getPosts(requestUrl);
 
 //create table search
 function tableSearch() {
+    
     let found_id = "";
     let phrase = document.getElementById('search-text');
     let items = document.getElementsByClassName("table_content_div");
     let itemRows = postWrapper.getElementsByTagName("div");
+    console.log("я сработала" + phrase.value);
     //main cycle
     for (let i = 0; i < items.length; i++) {
         // find current element and change display
@@ -114,6 +122,17 @@ function tableSearch() {
         }
     }
 }
+//debounce
+const debounce = (fn, ms) => {
+    let timeout;
+    return function () {
+      const fnCall = () => { fn.apply(this, arguments) }
+      clearTimeout(timeout);
+      timeout = setTimeout(fnCall, ms);
+    };
+  }
+    tableSearch = debounce(tableSearch, 200);
+
 //preloader
 setTimeout(function () {
     imagesCount = images.length;
@@ -135,7 +154,36 @@ setTimeout(function () {
         percentDisplay.innerHTML = (((100 / imagesCount) * imagesLoaded) << 0) + "%";
         if (imagesLoaded >= imagesCount) {
             preloader.classList.add("preloader_done");
+            console.log(users);
         }
     }
 }, 3000);
 
+ postWrapper.onmouseover = postWrapper.onmouseout = imgHover;
+
+ function imgHover(e){
+     let tooltipId;
+     
+     if ((e.target.classList.contains("table_avatar")) && (e.type == "mouseover")){
+            console.log("Аватар");
+            let avatarWrap = e.target.parentNode;
+            //let imgWrap = avatarWrap.parentNode;
+            let images = avatarWrap.getElementsByTagName("IMG");
+            // for(let img of tooltipImg){
+            //     if (img.style.visibility =  "hidden"){
+            //         img.style.visibility =  "visible";
+            //         console.log(img);
+            //     }
+            for(let img of images){
+                if (img.style.display =  "none"){
+                    img.style.display =  "inline";
+                    tooltipImg = img;
+                    console.log(img);
+                }
+            }
+     }
+     if((e.type == "mouseout")){
+         console.log(tooltipImg);
+         tooltipImg.style.display = "none";
+     }
+ }
