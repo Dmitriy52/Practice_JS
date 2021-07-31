@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>CheckHTML</title>
+    <meta charset="utf-8">
+    <title>users</title>
     <link rel="stylesheet" href="./table_users.css">
 </head>
 <body>
@@ -10,14 +10,12 @@
         <div class="preloader_mainContainer">
             <div class="preloader_animation"></div>
             <div class="preloader_percentsOfLoad"><span id="percentsOfLoad">0%</span></div>
-        </div>
-
-        
+        </div>  
     </div>
-    
     <div  class="main_wrapper">
-        <div class="search-wrap">
-            <input class="control-search" type="text" placeholder="Что ищем?" id="search-text" onkeyup="tableSearch()">
+        <div class="search_wrap">
+            <input class="control_search_input" type="text" placeholder="Кто вам нужен?" id="search-text" onkeyup="tableSearch()">
+            <button class="control_search_clearbtn" onclick="closeMessage()">x</button>
           </div>
         <div class="table_area"> 
             <div class="table_caption">
@@ -28,6 +26,10 @@
                 <div>Email</div>
                 <div>Phone</div>
                 <div>Registrated date</div>
+            </div>
+            <div id="noUsersMessage" style="display: none;">
+                <h1>Нет такого пользователя</h1>
+                <button id="messageButn" class="message_btn_ok" onclick="closeMessage()" >Ok</button>
             </div>
             <div id="table_wrapper" class="table_content"></div>
     </div>

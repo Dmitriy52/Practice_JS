@@ -1,13 +1,15 @@
 const requestUrl = 'https://randomuser.me/api/?results=15';
 const postWrapper = document.getElementById('table_wrapper');
 let users = [];
+let phrase = document.getElementById('search-text');
 let images = document.images;
 let imagesCount;
 let trueRegistratedDate;
 let tooltipImg;
+let message = document.getElementById("noUsersMessage");
 
+//create main contant for table with users
 function createUsersTable(data, id) {
-    console.log(data.name.first.toLowerCase().split('').slice());
     return `
   
                     <div class="table_content_div" data-name="first_name" data-id="${id}">
@@ -40,7 +42,7 @@ function createUsersTable(data, id) {
                     </div>
             `
 }
-
+//work with JSON
 function getPosts(url) {
     let item_id = 0;
     fetch(url)
@@ -74,13 +76,12 @@ getPosts(requestUrl);
 
 //create table search
 function tableSearch() {
-    
+    let flagForNotFoundedUsers = false;
+    let flagForFoundedUser = true;
     let found_id = "";
-    let phrase = document.getElementById('search-text');
     let items = document.getElementsByClassName("table_content_div");
     let itemRows = postWrapper.getElementsByTagName("div");
-    console.log("я сработала" + phrase.value);
-    //main cycle
+
     for (let i = 0; i < items.length; i++) {
         // find current element and change display
         for (let item of items) {
@@ -88,19 +89,21 @@ function tableSearch() {
             //get cell content
             let cell = "";
             //for get first name + last name
-            for (let item of items){
-                if (item.getAttribute("data-id") == id){
+            for (let item of items) {
+                if (item.getAttribute("data-id") == id) {
                     cell += item.innerHTML.trim().toLowerCase() + " ";
                 }
             }
             //if not found
-            if (((cell.split('').slice(0, phrase.value.length).join('') !== phrase.value.toLowerCase())&&(item.innerHTML.trim().toLowerCase().split('').slice(0, phrase.value.length).join('') !== phrase.value.toLowerCase())) && (found_id !== id)) {
+            if (((cell.split('').slice(0, phrase.value.length).join('') !== phrase.value.toLowerCase()) && (item.innerHTML.trim().toLowerCase().split('').slice(0, phrase.value.length).join('') !== phrase.value.toLowerCase())) && (found_id !== id)) {
                 item.style.display = 'none';
+                //work  with elements without (class="table_content_div")
                 for (elem of itemRows) {
                     if (elem.getAttribute("data-name") == "elem" && elem.getAttribute("data-id") == id) {
                         elem.style.display = 'none';
                     }
                 }
+                flagForNotFoundedUsers = true;
             } else if (phrase.value === "") {
                 for (let item of items) {
                     item.style.display = 'inline';
@@ -108,6 +111,7 @@ function tableSearch() {
                 for (let elem of itemRows) {
                     elem.style.display = 'inline';
                 }
+                closeMessage();
                 //if found 
             } else {
                 item.style.display = 'inline';
@@ -118,25 +122,41 @@ function tableSearch() {
                         elem.style.display = 'inline';
                     }
                 }
+                flagForFoundedUser = false;
             }
         }
     }
+    //open PopUp Message
+    if (flagForNotFoundedUsers === true) {
+        message.style.display = "inline";
+
+    }
+    //close PopUp Message if we found only one user or more
+    if (flagForFoundedUser === false) {
+        message.style.display = "none";
+    }
+}
+//close PopUp Message and open Users Table 
+//We can create new function for clear "Search Input" but use this function
+function closeMessage() {
+    message.style.display = "none";
+    phrase.value = "";
+    tableSearch();
 }
 //debounce
 const debounce = (fn, ms) => {
     let timeout;
     return function () {
-      const fnCall = () => { fn.apply(this, arguments) }
-      clearTimeout(timeout);
-      timeout = setTimeout(fnCall, ms);
+        const fnCall = () => { fn.apply(this, arguments) }
+        clearTimeout(timeout);
+        timeout = setTimeout(fnCall, ms);
     };
-  }
-    tableSearch = debounce(tableSearch, 200);
+}
+tableSearch = debounce(tableSearch, 200);
 
 //preloader
 setTimeout(function () {
     imagesCount = images.length;
-    console.log(imagesCount);
     let imagesLoaded = 0;
     let preloader = document.getElementById("preloaderWindow");
     let percentDisplay = document.getElementById("percentsOfLoad");
@@ -146,44 +166,33 @@ setTimeout(function () {
         image_clone.onload = imageLoadedCount;
         image_clone.onerror = imageLoadedCount;
         image_clone.src = images[i].src;
-        console.log(i);
     }
     function imageLoadedCount() {
         imagesLoaded++;
-        console.log(imagesLoaded);
         percentDisplay.innerHTML = (((100 / imagesCount) * imagesLoaded) << 0) + "%";
         if (imagesLoaded >= imagesCount) {
             preloader.classList.add("preloader_done");
-            console.log(users);
         }
     }
 }, 3000);
 
- postWrapper.onmouseover = postWrapper.onmouseout = imgHover;
+postWrapper.onmouseover = postWrapper.onmouseout = imgHover;
 
- function imgHover(e){
-     let tooltipId;
-     
-     if ((e.target.classList.contains("table_avatar")) && (e.type == "mouseover")){
-            console.log("Аватар");
-            let avatarWrap = e.target.parentNode;
-            //let imgWrap = avatarWrap.parentNode;
-            let images = avatarWrap.getElementsByTagName("IMG");
-            // for(let img of tooltipImg){
-            //     if (img.style.visibility =  "hidden"){
-            //         img.style.visibility =  "visible";
-            //         console.log(img);
-            //     }
-            for(let img of images){
-                if (img.style.display =  "none"){
-                    img.style.display =  "inline";
-                    tooltipImg = img;
-                    console.log(img);
-                }
+//create tooltip with medium image
+function imgHover(e) {
+
+    if ((e.target.classList.contains("table_avatar")) && (e.type == "mouseover")) {
+        let avatarWrap = e.target.parentNode;
+        let images = avatarWrap.getElementsByTagName("IMG");
+
+        for (let img of images) {
+            if (getComputedStyle(img).display == "none") {
+                img.style.display = "inline";
+                tooltipImg = img;
             }
-     }
-     if((e.type == "mouseout")){
-         console.log(tooltipImg);
-         tooltipImg.style.display = "none";
-     }
- }
+        }
+    }
+    if ((e.type == "mouseout")) {
+        tooltipImg.style.display = "none";
+    }
+}
