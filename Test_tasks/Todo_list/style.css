@@ -1,0 +1,185 @@
+/*.input-group-prepend{}*/
+/*.input-group-text{}*/
+/*.input-group-elem{}*/
+/*.input-group-append{}*/
+/*.listColumn{}*/
+/*.but-del{}*/
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+}
+
+.wrapper {
+    max-width: 700px;
+    display: grid;
+    grid-template-areas:
+    "input-group"
+    "listColumn";
+    grid-template-rows: 0.1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    margin: 0;
+}
+
+.input-group {
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group > input, textarea{
+    height: 30px;
+    font-size:larger;
+    border-radius: 5px;
+}
+.input-group-btn-add{
+    position: relative;
+    width: 180%;
+    height: 25px;
+    margin-bottom: 5px;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    background:linear-gradient(to top, #FFD540, #E6E6E6) #FFE073 repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.input-group-btn-add:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
+}
+.input-group-btn-add:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+.input-group-btn-add:hover:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    transform: translateY(5px);
+}
+
+.listColumn{
+    min-width: 257px;
+    min-height: 350px;
+    border: 2px dotted;
+    border-color: brown;
+}
+.list-group {
+    padding: 50px;
+    min-height: 100px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.list-group-item {
+    margin: 0px;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-rows: 0.2fr 1fr 0.1fr 0.1fr ;
+    overflow-wrap: break-word;
+    border: 2px solid;
+    border-color: green;
+    background-color: bisque;
+    transition: 1s;
+}
+.list-group-item div {
+    display: grid;
+    font-size: 12px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr 0.1fr;
+}
+
+.list-group-item span {
+    visibility: hidden;
+    background-color: rgba(52, 211, 20, 0.5);
+}
+
+.list-group-item:hover{
+    transform:scale(1.3);
+}
+.list-group-item:active{
+    transform:scale(1);
+}
+
+.list-group-item-btn-del{
+    background-color: brown;
+}
+
+div + div {
+    border-right: 1px dotted #222;
+}
+
+h3 {
+    margin: 30px;
+    text-align: center;
+}
+
+h4 {
+    margin: 0;
+    background-color:lightgrey;
+    text-align: center;
+}
+
+p {
+    margin: 0px;
+}
+.completed li,
+.completed p {
+    text-decoration: line-through;
+    background-color: rgba(52, 211, 20, 0.5);
+}
+.completed span {
+    visibility: visible;
+}
+
+.in-progress li,
+.in-progress div,
+.in-progress p{
+  text-decoration: 1px dashed underline #222;
+  background-color: rgba(201, 48, 48, 0.5);
+}
+
+.drop {
+    background: linear-gradient(#eee, transparent);
+    border-radius: 4px;
+}
+.empty-input{
+  background: linear-gradient( to bottom, rgb(209, 209, 209), #eb9494);
+  box-shadow: 0 8px 16px 0 rgba(252, 0, 0, 0.2), 0 6px 20px 0 rgba(255, 0, 0, 0.19); 
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Todo_list</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Drag & Drop Example</h1>
+    <!--    created main container    -->
+    <div class="wrapper" data-name="mainContainer">
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Enter new todo: </span>
+            </div>
+            <input type="text" data-rule="text" id="name" maxlength="12" placeholder="Name of task" data-name="task-name" />
+            <textarea type="text" data-rule="text" id="task" maxlength="48" style="height: 70px; font-size: 14px; resize: none" placeholder="Text of task" data-name="todo-input"></textarea>
+            <div class="input-group-append">
+                <button id="add" class="input-group-btn-add" data-name="add-btn">Add</button>
+            </div>
+        </div>
+        <!-- created three columns for elements-->
+        <div class="listColumn">
+            <h3>Todos</h3>
+            <ul class="list-group" data-name="todos-list">
+                <li class="list-group-item" data-id="1" draggable="true">
+                    <h4>Task_name 1</h4>
+                    <p>Task-text</p>
+                    <div>
+                        <p>Создана:</p>
+                        <p>20.01.2021</p>
+                        <span>Завершена:</span>
+                        <span></span>
+                    </div>
+                    <button class="list-group-item-btn-del" data-name="remove-btn">
+                        X
+                    </button>
+                </li>
+                    <li class="list-group-item" data-id="2" draggable="true">
+                        <h4>Task_name 2</h4>
+                        <p>Task-text</p>
+                        <div>
+                            <p>Создана:</p>
+                            <p>15.05.2021</p>
+                            <span>Завершена:</span>
+                            <span></span>
+                        </div>
+                        <button class="list-group-item-btn-del" data-name="remove-btn">
+                            X
+                        </button>
+                    </li>
+                <li class="list-group-item" data-id="3" draggable="true">
+                    <h4>Task_name 3</h4>
+                    <p>Task-text</p>
+                    <div>
+                        <p>Создана:</p>
+                        <p>05.06.2021</p>
+                        <span>Завершена:</span>
+                        <span></span>
+                    </div>
+                    <button class="list-group-item-btn-del" data-name="remove-btn">
+                        X
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="listColumn">
+            <h3>In Progress</h3>
+            <ul class="list-group" data-name="in-progress-list"></ul>
+        </div>
+
+        <div class="listColumn">
+            <h3>Completed</h3>
+            <ul class="list-group" data-name="completed-list"></ul>
+        </div>
+    </div>
+<script src="./main.js"></script>
+</body>
+</html>
