@@ -1,0 +1,141 @@
+.wrapper{
+    display: grid;
+    width: 100%;
+    margin-bottom: 3000px;
+    grid-template-columns: 30% 5% 30%;
+    grid-template-rows: 300px;
+}
+.container{
+    overflow-y: scroll;
+    height: 170px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 300px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    background-color: blanchedalmond;
+}
+
+.containerElem{
+    width: 99%;
+    height: 50px;
+    border: 1px solid grey;
+    background-color: honeydew;
+
+}
+.search{
+    width: 90%;
+    height: 30px;
+    margin: 10px;
+    box-shadow: 0 0 3px;
+    border-radius: 5px;
+    border-color: lightslategrey;
+    background-color: honeydew;
+}
+.active {
+    background-color: mediumaquamarine;
+}
+
+.selected {
+    opacity: 0.6;
+}
+
+.buttonContainer {
+    max-width: 100px;
+    margin-top: 55px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+
+
+}
+.buttonCntnrElem {
+    width: 120%;
+    height: 25px;
+    margin-bottom: 13px;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+    background: darkturquoise;
+    border: 1px solid midnightblue;
+    border-radius: 9px;
+    outline: none;
+    transition: 0.7s ease-in-out;
+    box-shadow: inset rgba(0,0,0,.6) 0 -2px 5px, inset rgba(252,255,255,.7) 0 2px 5px, rgba(0,0,0,.8) 0 2px 5px -1px;
+}
+.buttonCntnrElem:hover {
+    transition: 0.5s ease-in-out;
+    background: springgreen;
+    border: 1px solid darkgreen;
+    color: black;
+}
+
+.buttonCntnrElem:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.buttonCntnrElem:active {
+    padding-bottom: 1px;
+    box-shadow:
+            inset rgba(0,0,0,1) 0 1px 3px,
+            inset rgba(0,0,0,.6) 0 -2px 5px,
+            inset rgba(252,255,255,.7) 0 2px 5px,
+            0 1px rgba(255,255,255,.08);
+}
+.buttonCntnrElem span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+.buttonCopyObj{
+    position: relative;
+    width: 180%;
+    height: 25px;
+    left: -15px;
+    margin-bottom: 5px;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    background:linear-gradient(to top, #FFD540, #E6E6E6) #FFE073 repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.buttonCopyObj:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
+}
+.buttonCopyObj:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+.buttonCopyObj:hover:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    transform: translateY(5px);
+}
