@@ -1,6 +1,7 @@
 .wrapper{
     display: grid;
     width: 100%;
+    margin-bottom: 3000px;
     grid-template-columns: 30% 5% 30%;
     grid-template-rows: 300px;
 }
@@ -15,7 +16,7 @@
     background-color: blanchedalmond;
 }
 
-.containerElem {
+.containerElem{
     width: 99%;
     height: 50px;
     border: 1px solid grey;
@@ -33,6 +34,10 @@
 }
 .active {
     background-color: mediumaquamarine;
+}
+
+.selected {
+    opacity: 0.6;
 }
 
 .buttonContainer {

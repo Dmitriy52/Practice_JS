@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DataBase</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div class="app">
+      <!-- Create control panel block -->
+      <div class="control-panel">
+        <div class="filter-wrap" >
+          <select class="control-filter" id="filter">
+            <option value="Все">все</option>
+            <optgroup label="Поставщик" style="background-color:rgb(221, 243, 221)">
+              <option value="BMW">Bmw</option>
+              <option value="AUDI">Audi</option>
+              <option value="LADA">Lada</option>
+            </optgroup>
+            <optgroup label="Склад" style="background-color:rgb(240, 240, 215)">
+              <option value="Основной">Основной</option>
+              <option value="Запасной">Запасной</option>
+            </optgroup>
+            <optgroup label="Товар" style="background-color:rgb(224, 246, 247)">
+              <option value="Двигатель">Двигатель</option>
+              <option value="Свечи">Свечи</option>
+              <option value="Катушка">Катушка</option>
+            </optgroup>
+          </select>
+        </div>
+        <!-- Create table search block-->
+        <div class="search-wrap">
+          <input class="control-search" type="text" placeholder="Что ищем?" id="search-text" onkeyup="tableSearch()">
+        </div>
+        <!-- Create button for print -->
+        <div class="btn-print-wrap">
+          <input class="control-btn-print" type="button" onclick="printDiv('table-print-area')" value="Печать">
+        </div>
+        <!-- Create button for add defauls rows block -->
+        <div class="addDefaultRows-wrap" id="addDefaultWrap">
+          <div><input class="control-addDefaultRows" type="button" id="addDefault" value="Заполнить по умолчанию"></div>
+        </div>
+      </div>
+
+      <!-- Create form block -->
+      <div class="add-block" id="add-block-items">
+        <div class="add-block-item"><h3>Хотите добавить строку?</h3></div>
+        <div><input type="date" data-rule="date" id="add-date" placeholder="дд.мм.гг" min="1990-01-01" max="2030-12-31"></div>
+        <div><input type="text" data-rule="text" id="add-nameOfProvider" placeholder="Наименование поставщика"></div>
+        <div><input type="text" data-rule="text" id="add-warehouse" placeholder="Склад приемки"></div>
+        <div><input type="text" data-rule="text" id="add-nameOfProduct" placeholder="Наименование товара"></div>
+        <div><input type="number" data-rule="number" id="add-quantity" placeholder="Количество"></div>
+        <div><input type="number" data-rule="number" id="add-total" placeholder="Сумма"></div>
+        <div><input type="button" style="height: 34px;" id="add" value="+"></div>
+      </div>
+        <!-- create wrapper for print-->
+      <div id="table-print-area">
+                <!-- Create head of table block-->
+        <div class="caption-table">
+          <div>№</div>
+              <div>Дата</div>
+                <div>Наименование поставщика</div>
+                  <div>Склад приемки</div>
+                <div>Наименование товара</div>
+              <div>Количество (шт)</div>
+            <div>Сумма (руб)</div>
+        </div>
+                <!-- Create table block-->
+        <div id="id-table-block" class="table-block">
+            <div  class="table" ></div>
+          </div>
+      </div>
+      </div>
+          <!-- create button clear block -->
+      <div class="clear-btn-block">
+        <button id="btnClear">Очистить базу</button>
+      </div>
+    </div>
+    <script src="./js/app.js"></script>
+    <script src="./js/database.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

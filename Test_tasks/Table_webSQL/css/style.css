@@ -1,0 +1,227 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #bbb09e;
+}
+.print { /* Стиль для печати */
+    page-break-inside:auto;
+    margin-top: 32px;
+    margin-bottom: 35px;
+}
+
+.app {
+  width: 100%;
+  background-color: #f3e6e6;
+}
+
+.add-block {
+  display: grid;
+  grid-template-columns: 0.3fr 0.6fr 0.6fr 0.6fr 0.3fr 0.3fr 0.1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  background: linear-gradient(#ddd8d8, #79e631);
+}
+.add-block-item{
+  grid-column-start: 1;
+  grid-column-end: 8;
+  text-align: center;
+}
+.empty-input{
+  background: linear-gradient( to bottom, rgb(209, 209, 209), #eb9494);
+  box-shadow: 0 8px 16px 0 rgba(252, 0, 0, 0.2), 0 6px 20px 0 rgba(255, 0, 0, 0.19); 
+}
+.add-block > button{
+  background: linear-gradient( to bottom, rgb(165, 7, 1), #f72b2b);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
+}
+
+.caption-table {
+  display: grid;
+  grid-template-columns: 0.1fr 0.3fr 0.6fr 0.6fr 0.6fr 0.3fr 0.2fr 54px;
+  color: rgb(14, 13, 13);
+  background: linear-gradient(#ddd8d8, #c0b5b5);
+  font-weight: bold;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 0.1fr 0.3fr 0.6fr 0.6fr 0.6fr 0.3fr 0.2fr 54px;
+  color: rgb(10, 8, 8);
+}
+
+.table > div {
+  padding: 10px;
+  line-height: 53px; 
+  border-top: solid 1px;
+}
+
+.caption-table > div {
+  padding: 10px;
+}
+
+.cell-table > button{
+  border-radius: 9;
+  background: linear-gradient( to bottom, rgb(165, 7, 1), #f72b2b);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ 
+}
+
+.clear-btn-block > button{
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  border: 0;
+  outline: none;
+  background: linear-gradient( to bottom, rgb(165, 7, 1), #f72b2b); 
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.add-block > div > input {
+  height: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  border: 1px solid;
+  outline: none;
+  background-color: honeydew;
+}
+.add-block-Input {
+  height: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  border: 1px solid;
+  outline: none;
+  background-color: honeydew;
+}
+
+.table > div > button{
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  border: 1px solid;
+  outline: none;
+  background-color: honeydew;
+}
+.add-block > div > input[type="button"] {
+  background: linear-gradient( to bottom, rgb(165, 7, 1), #f72b2b);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.add-block > div > input[type="number"]::-webkit-outer-spin-button,
+.add-block > div > input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.add-block > div > input[type="text"]:focus {
+  border-bottom: 1px solid #58da25;
+  transition: all .5s;
+}
+
+.clear-btn-block > button:hover,
+.table > div > button:hover,
+.add-block > div > input[type="button"]:hover {
+  background: linear-gradient( to top, rgb(165, 7, 1), #f72b2b);
+}
+
+.clear-btn-block > button:active,
+.table > div > button:active,
+.add-block > div > input[type="button"]:active {
+  box-shadow: 0 8px 16px 0 rgba(37, 49, 22, 0.2), 0 6px 20px 0 rgba(139, 130, 4, 0.19);
+  color: #fdfdfd;
+}
+
+.table-block {
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: none;
+}
+.control-panel{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 5px;
+  justify-items: center;
+  
+}
+.control-filter{
+  height: 30px;
+  margin: 10px;
+  background: linear-gradient( to bottom, honeydew, #dff8fc); 
+  border: 2px solid #999; 
+  border-radius: 3px; 
+  box-shadow: 0 0 5px #999; 
+  color: #111; 
+  font-size: 15px; 
+  padding: 2px; 
+  width: 200px;
+}
+.control-filter:hover{
+  box-shadow: 1px 1px 5px rgb(238, 3, 3); 
+}
+
+.control-search{
+  height: 30px;
+  margin: 10px;
+  box-shadow: 0 0 5px #999; 
+  border-radius: 5px;
+  color: #111; 
+  border-color: lightslategrey;
+  background-color: honeydew;
+}
+.control-search:hover{
+  box-shadow: 1px 1px 5px rgb(238, 3, 3); 
+}
+.control-addDefaultRows, .control-btn-print{
+  height: 30px;
+  margin: 10px;
+  background: linear-gradient( to bottom, rgb(253, 255, 240), #dff8fc); 
+  border: 2px solid #999; 
+  border-radius: 3px; 
+  box-shadow: 0 0 5px #999; 
+  color: #111; 
+  font-size: 15px; 
+  padding: 2px; 
+  width: 200px;
+}
+.control-addDefaultRows:hover, .control-btn-print:hover{
+  box-shadow: 1px 1px 5px rgb(238, 3, 3); 
+}
+.filter{
+background-color: #f3f2e6';
+}
+.table-block::-webkit-scrollbar {
+width: 10px;
+background-color: #F5F5F5;
+border-radius: 10px;
+}
+
+.table-block::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #eee;
+  box-shadow: 0 0 1px 1px #bbb, inset 0 0 7px rgba(0,0,0,0.3);
+}
+
+.table-block::-webkit-scrollbar-thumb {
+border-radius: 10px;
+  background: linear-gradient(to bottom, #9df12f, #f72b2b);
+  box-shadow: inset 0 0 1px 1px #5C6670;
+}
+
+.table-block::-webkit-scrollbar-thumb:hover {
+ background: linear-gradient(to top, #9df12f, #f72b2b);
+}
+
+.table-block::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(to left, #3bf735, #488ae0);
+}
