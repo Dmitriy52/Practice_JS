@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CheckHTML</title>
+    <style>
+        .answer{
+            float:left;
+            margin:15px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>Проверка на FizzBuzz</span>
+        <p>Введите число для проверки:</p>
+        <input type="number" id="number" placeholder="15">
+        <button onclick="fizzBuzz()">Run FizzBuzz</button>
+        <div>
+            <p class="answer"> В ряде чисел от 1 до </p> <p class="answer" id="textNumber"> (ваше число)  </p>
+            <p class="answer"> FizzBuzz работает следующим образом:</p>
+            <p class="answer" id="result"></p>
+        </div>
+
+    </div>
+    <script src="FizzBuzz.js"> </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CheckHTML</title>
+    <style>
+        .answer{
+            float:left;
+            margin:20px 2px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>Проверим анаграмма или нет</span>
+        <p>Введите два слова для сравнения:</p>
+        <input type="text" id="word1" placeholder="Любое слово">
+        <input type="text" id="word2" placeholder="Любое слово">
+        <button onclick="anagramma()">Проверить</button>
+        <div>
+            <p class="answer"> по результатам проверки мы выявили что ваши слова - </p>
+            <p class="answer" id="result"></p>
+        </div>
+
+    </div>
+    <script src="Anagramma.js"> </script>
+</body>
+</html>
