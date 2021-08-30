@@ -1,0 +1,83 @@
+.todo {
+	display: flex;
+	padding: 10px 15px;
+	background-color: #FFF;
+	border-bottom: 1px solid #DDD;
+}
+
+.todo:nth-child(even) {
+	background-color: #EEE;
+}
+
+.todo:last-of-type {
+	border-bottom: 0;
+}
+
+.todo .id {
+	flex: 1 1 50px;
+}
+
+.todo .content {
+	flex: 1 1 100%;
+}
+
+.todo.done .content {
+	text-decoration: line-through;
+}
+
+.todo-input {
+	display: block;
+	width: 100%;
+	padding: 10px 15px;
+	appearance: none;
+	border: none;
+	background-color: #F3F3F3;
+	margin-top: 15px;
+	font-size: 20px;
+	outline: none;
+}
+
+.todo-submit {
+	display: block;
+	width: 100%;
+	max-width: 200px;
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+	background: linear-gradient( to bottom, #FE4880, #f72b2b);
+	color: #FFF;
+	margin: 15px auto;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	padding: 10px 15px;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.todo-submit:hover {
+	background: linear-gradient( to top, #FE4880, #f72b2b);
+}
+.todo-submit:active{
+	box-shadow: 0 8px 16px 0 rgba(37, 49, 22, 0.2), 0 6px 20px 0 rgba(139, 130, 4, 0.19);
+}
+
+.todo-delete{
+	font-size: 14px;
+	font-weight: bold;
+	padding: 8px;
+	width: 5%;
+	color: rgb(0, 0, 0);
+	border: 0;
+	outline: none;
+	background: linear-gradient( to bottom, rgb(165, 7, 1), #f72b2b); 
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.todo-delete:hover{
+	background: linear-gradient( to top, rgb(165, 7, 1), #f72b2b);
+}
+
+.todo-delete:active{
+	box-shadow: 0 8px 16px 0 rgba(37, 49, 22, 0.2), 0 6px 20px 0 rgba(139, 130, 4, 0.19);
+	color: #fdfdfd;
+}
