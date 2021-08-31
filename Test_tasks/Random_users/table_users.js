@@ -6,6 +6,7 @@ let images = document.images;
 let imagesCount;
 let trueRegistratedDate;
 let tooltipImg;
+let contentLoadFlag = false;
 let message = document.getElementById("noUsersMessage");
 
 //create main contant for table with users
@@ -69,8 +70,9 @@ function getPosts(url) {
                 trueRegistratedDate = day.join("") + "." + month.join("") + "." + year.join("");
                 postWrapper.innerHTML += createUsersTable(user, item_id);
             })
+            // launch function after load content
+            closePreloader();
         })
-
 }
 getPosts(requestUrl);
 
@@ -155,26 +157,31 @@ const debounce = (fn, ms) => {
 tableSearch = debounce(tableSearch, 200);
 
 //preloader
-setTimeout(function () {
-    imagesCount = images.length;
-    let imagesLoaded = 0;
-    let preloader = document.getElementById("preloaderWindow");
-    let percentDisplay = document.getElementById("percentsOfLoad");
+function closePreloader() {
+    //we may not check this flag, but if we check it will be better
+    if (contentLoadFlag === true) {
 
-    for (let i = 0; i < imagesCount; i++) {
-        let image_clone = new Image();
-        image_clone.onload = imageLoadedCount;
-        image_clone.onerror = imageLoadedCount;
-        image_clone.src = images[i].src;
-    }
-    function imageLoadedCount() {
-        imagesLoaded++;
-        percentDisplay.innerHTML = (((100 / imagesCount) * imagesLoaded) << 0) + "%";
-        if (imagesLoaded >= imagesCount) {
-            preloader.classList.add("preloader_done");
+        imagesCount = images.length;
+        let imagesLoaded = 0;
+        let preloader = document.getElementById("preloaderWindow");
+        let percentDisplay = document.getElementById("percentsOfLoad");
+
+        for (let i = 0; i < imagesCount; i++) {
+            let image_clone = new Image();
+            image_clone.onload = imageLoadedCount;
+            image_clone.onerror = imageLoadedCount;
+            image_clone.src = images[i].src;
+        }
+
+        function imageLoadedCount() {
+            imagesLoaded++;
+            percentDisplay.innerHTML = (((100 / imagesCount) * imagesLoaded) << 0) + "%";
+            if (imagesLoaded >= imagesCount) {
+                preloader.classList.add("preloader_done");
+            }
         }
     }
-}, 3000);
+}
 
 postWrapper.onmouseover = postWrapper.onmouseout = imgHover;
 
@@ -195,4 +202,8 @@ function imgHover(e) {
     if ((e.type == "mouseout")) {
         tooltipImg.style.display = "none";
     }
+}
+
+window.onload = function () {
+    contentLoadFlag = true;
 }
