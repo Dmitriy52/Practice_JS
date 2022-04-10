@@ -1,6 +1,7 @@
 import React from "react";
 import Board from "../Board/Board";
 import CalculateWinner from "../Controllers/CalculateWinnerController";
+import { POSITIONSNAME } from "../../constants/constants";
 
 class Game extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class Game extends React.Component {
     this.state = {
       history: [{ squares: Array(9).fill(null) }],
       stepNumber: 0,
+      stepPosition: [],
       xIsNext: true,
     };
   }
@@ -15,10 +17,12 @@ class Game extends React.Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
+    const position = POSITIONSNAME[i];
     if (CalculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
+
     this.setState({
       history: history.concat([
         {
@@ -26,6 +30,7 @@ class Game extends React.Component {
         },
       ]),
       stepNumber: history.length,
+      stepPosition: this.state.stepPosition.concat(position),
       xIsNext: !this.state.xIsNext,
     });
   }
@@ -41,7 +46,11 @@ class Game extends React.Component {
     const winner = CalculateWinner(currentStep.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ? "Перейти к ходу #" + move : "К началу игры";
+      const desc = move
+        ? `Перейти к ходу № ${move} - Позиция: ${
+            this.state.stepPosition[move - 1]
+          }`
+        : "К началу игры";
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>

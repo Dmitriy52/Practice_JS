@@ -35,25 +35,25 @@ class Board extends React.Component {
     return (
       <div key="uniq">
         <Columns>
-          <div id="columns" key="1">
-            1
+          <div id="columns" key="a">
+            a
           </div>
-          <div id="columns" key="2">
-            2
+          <div id="columns" key="b">
+            b
           </div>
-          <div id="columns" key="3">
-            3
+          <div id="columns" key="c">
+            c
           </div>
         </Columns>
         <Rows>
-          <div id="rowsNumber" key="a">
-            a
+          <div id="rowsNumber" key="1">
+            1
           </div>
-          <div id="rowsNumber" key="b">
-            b
+          <div id="rowsNumber" key="2">
+            2
           </div>
-          <div id="rowsNumber" key="c">
-            c
+          <div id="rowsNumber" key="3">
+            3
           </div>
         </Rows>
         <BoardWrapper>{this.createBoard()}</BoardWrapper>

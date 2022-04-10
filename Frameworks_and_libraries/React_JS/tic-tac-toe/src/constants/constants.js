@@ -8,3 +8,15 @@ export const LINES = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
+export const POSITIONSNAME = [
+  "1a",
+  "1b",
+  "1c",
+  "2a",
+  "2b",
+  "2c",
+  "3a",
+  "3b",
+  "3c",
+];
